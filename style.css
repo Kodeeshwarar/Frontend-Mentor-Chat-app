@@ -1,0 +1,332 @@
+:root {
+  /*========== Colors ==========*/
+  --hue: 276;
+  --hue-second: 271;
+  --sub-heading: hsl(var(--hue), 100%, 81%);
+  --main-heading: hsl(var(--hue-second), 36%, 24%);
+  --paragraph: hsl(270, 7%, 64%);
+  --chat-left: hsl(var(--hue), 55%, 52%);
+  --chat-right: hsl(var(--hue-second), 15%, 43%);
+  --placeholder-text: hsl(206, 6%, 79%);
+
+  /* ==========Secondary ==========*/
+
+  --White: hsl(0, 0%, 100%);
+  --app-background: hsl(270, 20%, 96%);
+  --button: hsl(var(--hue-second), 36%, 24%);
+  --radio-button: hsl(289, 100%, 72%);
+
+  /*plae-violet gradient*/
+
+  --gradient-one: hsl(293, 100%, 63%);
+  --gradient-second: hsl(264, 100%, 61%);
+
+  /* ============ Font and Typography  ============  */
+}
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.55%;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  background: var(--White);
+  color: var(--placeholder-text);
+  line-height: 1.7;
+}
+.main {
+  position: relative;
+  display: grid;
+  align-items: center;
+  min-height: 100vh;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+}
+@media only screen and (max-width: 700px) {
+  .main {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  html {
+    font-size: 50.55%;
+  }
+}
+.main::before,
+.main::after {
+  content: " ";
+  position: fixed;
+  background: linear-gradient(var(--gradient-one), var(--gradient-second));
+  width: 25vw;
+  height: 80vh;
+  z-index: -99;
+}
+.main::before {
+  top: 0;
+  left: 0;
+  border-radius: 0 0 17vw 10vw;
+}
+@media only screen and (max-width: 900px) {
+  .main::before,
+  .main::after {
+    height: 40vh;
+    width: 40vw;
+    border-radius: 0 0 17rem 10rem;
+  }
+}
+.main::after {
+  bottom: 0;
+  right: 0;
+  background: var(--app-background);
+  border-radius: 17vw 10vw 0 0;
+  opacity: 0.8;
+}
+.flex {
+  display: flex;
+}
+.grid {
+  display: grid;
+}
+.margin-top {
+  margin-top: 1rem;
+}
+
+.section-phone {
+  position: relative;
+  width: 25rem;
+  height: 53rem;
+  background: var(--app-background);
+  box-shadow: 0 0 50px #ccc;
+  border: 1rem solid var(--White);
+  border-radius: 3rem;
+  justify-self: end;
+  margin-right: 15rem;
+  z-index: 1000;
+}
+@media only screen and (max-width: 900px) {
+  .section-phone {
+    grid-template-columns: 1fr;
+    justify-self: center;
+
+    margin-right: 0;
+  }
+}
+.section-phone::before {
+  content: " ";
+  position: absolute;
+  inset: 0;
+  width: 70%;
+  height: 3rem;
+  background: var(--White);
+  border-radius: 0 0rem 3rem 3rem;
+  margin: 0 auto;
+}
+
+.chat__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(
+    90deg,
+    var(--gradient-second) 0%,
+    var(--gradient-one) 100%
+  );
+
+  border-radius: 2.8rem 2.8rem 0 0;
+  padding: 4rem 1rem 1rem;
+  overflow: hidden;
+}
+
+.header__icon {
+  width: 20px;
+  fill: var(--White);
+}
+.avatar__img {
+  width: 100%;
+  height: 100%;
+}
+.chat__header-image {
+  overflow: hidden;
+  width: 4rem;
+  max-width: 100%;
+  border-radius: 50%;
+  align-self: flex-start;
+}
+.chat__header-center {
+  display: flex;
+  gap: 1rem;
+  justify-content: left;
+  align-items: center;
+  align-self: flex-start;
+  flex: 1 1 0;
+  gap: 1rem;
+}
+.dot-icon {
+  fill: var(--app-background);
+}
+.chat__header-name {
+  color: var(--White);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.chat__header-status {
+  color: var(--sub-heading);
+  font-size: 1rem;
+  font-weight: 400;
+}
+.chat__body {
+  flex-direction: column;
+  gap: 1rem;
+}
+.chat__body-left {
+  align-self: flex-start;
+}
+
+.chat__message-1 {
+  color: var(--chat-left);
+  background: hsl(270, 20%, 92%);
+  padding: 0.6rem;
+  font-size: 0.7rem;
+  font-weight: 400;
+  border-radius: 1.2rem 0 1.2rem 0;
+  width: 80%;
+}
+.chat__message-1 {
+  margin-bottom: 1rem;
+}
+.chat__body-right {
+  align-self: flex-end;
+}
+.chat__message-img {
+  width: 30px;
+  border-radius: 6px;
+}
+.chat__message-images {
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.chat__message-2 {
+  margin-bottom: 1rem;
+  color: var(--chat-right);
+  background: var(--White);
+  padding: 0.6rem;
+  font-size: 0.7rem;
+  font-weight: 400;
+  border-radius: 1.2rem 0 1.2rem 0;
+}
+.prices * + * {
+  margin-top: 1rem;
+}
+.price {
+  background: linear-gradient(
+    270deg,
+    var(--gradient-second) 0%,
+    var(--gradient-one) 100%
+  );
+  width: 19rem;
+  padding: 0.2rem 1.2rem;
+  justify-content: space-evenly;
+  gap: 1rem;
+  border-radius: 1.5rem 0 1.5rem 0;
+}
+.price__circle {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--radio-button);
+  vertical-align: middle;
+  position: relative;
+  top: 1rem;
+}
+.price__text {
+  font-size: 0.8rem;
+  color: var(--placeholder-text);
+  text-align: center;
+
+  margin-right: auto;
+}
+.price__rate {
+  font-size: 1.3rem;
+  color: var(--White);
+}
+.chat__form {
+  background: var(--White);
+  padding: 0.6rem;
+  border-radius: 3.5rem;
+  width: 95%;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+.chat__form-input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  padding-left: 1rem;
+  font-size: 1.2rem;
+}
+.right-arrow {
+  position: relative;
+  text-align: center;
+  fill: var(--White);
+}
+.chat__form-btn {
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  border: none;
+  outline: none;
+  width: 4rem;
+  height: 3.3rem;
+  border-radius: 50%;
+  background: var(--button);
+  outline: none;
+}
+.hero {
+  width: 70%;
+  line-height: 2;
+}
+@media only screen and (max-width: 900px) {
+  .hero {
+    max-width: 100%;
+    width: 80%;
+    padding: 0 2rem;
+    justify-self: start;
+  }
+}
+.hero__text {
+  color: var(--main-heading);
+  font-size: 4rem;
+}
+@media only screen and (max-width: 900px) {
+  .hero__text {
+    font-size: 3rem;
+  }
+}
+.hero__para {
+  color: var(--paragraph);
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+::-webkit-input-placeholder {
+  text-transform: initial;
+}
+/* .attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); } */
